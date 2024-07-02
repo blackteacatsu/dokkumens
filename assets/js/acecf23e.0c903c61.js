@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdokkuments=self.webpackChunkdokkuments||[]).push([[1903],{1912:e=>{e.exports=JSON.parse('{"blogBasePath":"/dokkuments/blog","blogTitle":"Blog"}')}}]);
