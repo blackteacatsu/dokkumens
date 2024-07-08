@@ -8,7 +8,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Dokkumentation page for Hydrometeorology Tools',
+  title: 'Dokkumentation Page for Hydrometeorology Tools',
   tagline: 'Created and maintained in Baltimore, Maryland',
   favicon: 'img/favicon.ico',
 
