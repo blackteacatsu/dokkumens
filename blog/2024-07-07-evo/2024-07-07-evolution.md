@@ -8,7 +8,7 @@ The first demo we did through arcgis experience builder, the data are processed 
 
 ## May 30th, 2024
 UI got it redesign for the first time
-![alt text](.hydroviewer-ver-1.png)
+![alt text](./hydroviewer-ver-1.png)
 
 ## July 2nd, 2024
 The interface underwent another redesign, and is currently maintained as below
