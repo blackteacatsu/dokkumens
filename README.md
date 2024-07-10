@@ -39,3 +39,14 @@ $ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+### Triggering deployment using GitHub Actions
+
+This website uses GtiHub Action for auto deployment, the GitHub pipeline files are stored under `.github/workflows/deploy.yml`. The source repo and deployment repo are the same repository. Therefore, committing and pushing from a remote repo to the `main` branch of this GitHub repo will automatically trigger this GitHub Pipeline.
+
+```mermaid
+flowchart LR
+    A([Build Docusaurus]) 
+    B([Deploy to https://blackteacatsu.github.io/dokkuments/])
+    A --> B
+```
