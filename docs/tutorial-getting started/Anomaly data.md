@@ -1,113 +1,110 @@
 # Anomaly workflow
 
-## Calculate anomaly data:
+## Calculating anomaly data:
 
-The method for calculating anomaly used in the method described below, sadsdas
+The method for calculating anomaly used in the method described below,
 
+$$
+x_{i, j}' = x_{i,j} - \bar{x}_i
+$$
 
+where $i$ is a month, and $j$ is the year. $\bar{x}_i$ is the historic mean of that month.
 
-## From raster data to shapefiles
+## Method
 
-Simply add a `for loop` at the begining of these code should be able
+### Goal
+We want to calculate monthly anomaly data for a list of variables stored together in a netCDF file, and later store them separately in the same `.nc` format.
 
+### Setup
+
+Go ahead and open a new python script or Jupyter Notebook, and start code setup,
+```python title="main.py"
+import xarray as xr
+import os
+
+# location directory
+nc_path = "~\...\LIS_HIST_2001_to_2023_Monthly.nc" 
+
+# list of variables we are interested in
+list_of_variables = ['Rainf_tavg','SoilMoist_inst','Qs_tavg', 
+'Evap_tavg','SoilTemp_inst','Qair_f_tavg']
+
+```
+
+### Preparing data for processing
+Load the dataset into our RAM using `xr.open_dataset()`, 
 ```python
-for anomaly_vars, nc_path in combined_nc_with_vars.items():
-    output_layer_name = "LIS_HIST_2001_to_2023_Monthly_" + anomaly_vars
-
-    # Import NetCDF as raster layer
-    arcpy.md.MakeMultidimensionalRasterLayer(
-    in_multidimensional_raster=nc_path,
-    out_multidimensional_raster_layer= output_layer_name,
-    variables=anomaly_vars,
-    dimension_def="ALL",
-    dimension_ranges=None,
-    dimension_values=None,
-    dimension="",
-    start_of_first_iteration="",
-    end_of_first_iteration="",
-    iteration_step=None,
-    iteration_unit="",
-    template='-82 -20.9999999999981 -49.0000000000019 6.00000000000038 GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]]',
-    dimensionless="DIMENSIONS",
-    spatial_reference=None
-    )
-
-    print(f"Created and saved multidimensional raster layer for variable: {anomaly_vars}") # Check if the import process is complete
-
-    # Calculate zonal statistic as table by polygon 
-    arcpy.sa.ZonalStatisticsAsTable(
-    in_zone_data=r"C:\Users\Kris\Documents\ArcGIS\Projects\amazon_ldas_netcdf_to_vector\amazon_ldas_netcdf_to_vector.gdb\hybas_sa_lev05_areaofstudy",
-    zone_field="PFAF_ID",
-    in_value_raster= output_layer_name,
-    out_table=r"C:\Users\Kris\Documents\ArcGIS\Projects\amazon_ldas_netcdf_to_vector\amazon_ldas_netcdf_to_vector.gdb\ZonalSt_hybas_lev05_" + anomaly_vars,
-    ignore_nodata="DATA",
-    statistics_type="MEAN_STD",
-    process_as_multidimensional="ALL_SLICES",
-    percentile_values=90,
-    percentile_interpolation_type="AUTO_DETECT",
-    circular_calculation="ARITHMETIC",
-    circular_wrap_value=360,
-    out_join_layer="",
-    )
+dataset = xr.open_dataset(nc_path)
 ```
-### Appending csv files to an exisiting polygon feature class
+But this pass the entire netCDF file into our environment, in order to call a single variable from the dataset use the following code,
+```
+data = dataset[variable]
+```
 
-**Step 0**: Validate Join
-
+:::tip
+Double check with `print()`, the output should only include one variable.
 ```python
-arcpy.management.ValidateJoin(
-    in_layer_or_view="hybas_sa_lev05_areaofstudy",
-    in_field="PFAF_ID",
-    join_table="ZonalSt_hybas_lev05_Qs_tavg_anomaly",
-    join_field="PFAF_ID",
-)
-```
-Terminal output should show the following:
+# for example
+data_rainfall = dataset["Rainf_tavg"]
 
-```shell
-Messages
-Start Time: July 4, 2024 7:34:30 PM
-Checking for invalid characters...
-Checking workspaces...
-Checking for field indexes...
-The join field PFAF_ID in the table amazon_ldas_netcdf_to_vector.ZonalSt_hybas_lev05_Qs_tavg_anomaly is not indexed. To improve performance, we recommend that an index be created.
-Checking for OIDs...
-Checking for join cardinality (1:1 or 1:m joins)...
-A one - to - many join has created 41400 records from 150 matches.
-The input table has 151 and the join table has 41400 records.
-Succeeded at July 4, 2024 7:34:31 PM (Elapsed Time: 0.84 seconds)
+print(data_rainfall)
 ```
 
-We know that performing a join operation through this way is successful since, it suggested that resulting attribute table will have 41400 data entries.
+```terminal title="Python 3"
+<xarray.DataArray 'Rainf_tavg' (time: 276, lat: 540, lon: 660)>
+[98366400 values with dtype=float32]
+Coordinates:
+  * time     (time) datetime64[ns] 2001-01-31 2001-02-28 ... 2023-12-31
+  * lat      (lat) float64 -20.98 -20.93 -20.88 -20.82 ... 5.875 5.925 5.975
+  * lon      (lon) float64 -81.97 -81.92 -81.88 -81.83 ... -49.13 -49.08 -49.03
+Attributes:
+    units:          mm/day
+    standard_name:  precipitation_rate
+    long_name:      precipitation rate
+    vmin:           0.0
+    vmax:           0.0
 
-***Step 1***
-
-```python
-for vars, table in combined_csv_with_vars.items():
-
-    arcpy.management.AddJoin(
-    in_layer_or_view="hybas_sa_lev05_areaofstudy",
-    in_field="PFAF_ID",
-    join_table=table,
-    join_field="PFAF_ID",
-    join_type="KEEP_ALL",
-    index_join_fields="NO_INDEX_JOIN_FIELDS",
-    rebuild_index="NO_REBUILD_INDEX",
-    join_operation="JOIN_ONE_TO_MANY"
-) 
-    
-    arcpy.management.CopyFeatures(
-    in_features="hybas_sa_lev05_areaofstudy",
-    out_feature_class=r"C:\Users\Kris\Documents\ArcGIS\Projects\amazon_ldas_netcdf_to_vector\amazon_ldas_netcdf_to_vector.gdb\hybas_sa_lev05_anomaly_of_" + vars,
-    config_keyword="",
-    spatial_grid_1=None,
-    spatial_grid_2=None,
-    spatial_grid_3=None
-)
-    print(f"Anomaly shapefile created for: {vars}")
-    
-    arcpy.management.RemoveJoin(
-    in_layer_or_view="hybas_sa_lev05_areaofstudy",
-    join_name=""
-)
 ```
+:::
+
+
+### Calculation w/ xarrary package
+
+
+```python title="main.py"
+# Calculate the monthly average
+mean_data = data.sel(time=slice('2001','2020')).groupby("time.month").mean(dim='time')
+
+# Calculate the anomaly
+anomaly = data.groupby("time.month") - mean_data
+```
+
+`data.mean(dim="time")` tells Xarray that we want the mean to be calculated along the **time** dimension. 
+
+`data.sel(time=slice('2001','2020'))` defines our mean value calculation is based on the data given from the year 2001 to 2020.
+
+`data.groupby("time.month")` tells Xarray that we are interested in the monthly average, expressed as $\bar{x}_i$.
+
+:::info
+For full description look under Xarray's official documentation page
+:::
+
+### Formatting for storage
+
+```python title="main.py"
+# Create a new dataset with the anomaly
+anomaly_ds = anomaly.to_dataset(name=f'{variable}_anomaly')
+
+# Config the new netCDF file name
+output_file_path = os.path.join(output_file_path, f"{variable}_anomlay.nc")
+
+# Save to a new netCDF file
+anomaly_ds.to_netcdf(output_file_path)
+```
+
+
+## Iterating through a list of variable
+:::tip
+Add a `for loop` at the beginning of the snippet provided here.
+:::
+
