@@ -15,3 +15,21 @@ slorber:
   title: Docusaurus maintainer
   url: https://sebastienlorber.com
   image_url: https://github.com/slorber.png
+
+kris:
+  name: Qibo Kris Su
+  title: Undergrad Student @JHU
+  url: https://www.linkedin.com/in/kris-su-354254203/
+  image_url: https://ca.slack-edge.com/T01DUPB61S8-U06MY9NRDU4-deccafc0a9e0-512
+
+prakrut:
+  name: Prakrut Kansara
+  title: Research Scientist @JHU
+  url: https://www.prakrutkansara.com/
+  image_url: https://pages.jh.edu/bzaitch1/images/prakrut.jpeg
+
+ben:
+  name: Benjamin Zaitchik
+  title: Professor
+  url: https://pages.jh.edu/bzaitch1/
+  image_url: https://ghhin.org/wp-content/uploads/ZaitchikB.jpg
