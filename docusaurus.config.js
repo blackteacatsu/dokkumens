@@ -8,6 +8,13 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+
+  //enable mermaid integration in Docusaurus
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+
   title: 'Dokkumentation Page for Hydrometeorology Tools',
   tagline: 'Created in Baltimore, Maryland',
   favicon: 'img/favicon.ico',
@@ -66,7 +73,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'Amazon HydroViewer',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
@@ -80,8 +87,8 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://eps.jhu.edu/',
+            label: 'eps@JHU',
             position: 'right',
           },
         ],
@@ -129,7 +136,10 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} The Amazon Hydrometeorology Tool. `, // Built with Docusaurus. 
+      },
+      mermaid:{
+        theme: {light: "forest", dark: "dark"},
       },
       prism: {
         theme: prismThemes.github,

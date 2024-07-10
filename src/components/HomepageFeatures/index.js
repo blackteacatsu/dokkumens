@@ -4,32 +4,31 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Python Backend',
+    Svg: require('@site/static/img/python-4.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+       Our geoprocessing steps include those of your favourtie data analytic tools.
+       So you can easily improvise them into your own workflows.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Contents Served Using Markdown & MDX',
+    Svg: require('@site/static/img/Markdown-blue-solid.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Markdown is the most widespread markup language, uses plain text formatting which could be edited anywhere by anyone.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Optimized for Collaboration',
+    Svg: require('@site/static/img/github-octocat.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        This documentation sites is hosted using GitHub Page, and the sources are under a 
+        publicized repo, which makes it ideal for collaborative endeavour
       </>
     ),
   },
