@@ -1,3 +1,7 @@
+<video width="320" height="240" controls>
+  <source src="https://github.com/blackteacatsu/spring_2024_envs_research_amazon_ldas/blob/main/media_files/Map_3D.mp4" type="video/mp4">
+</video>
+
 # Website
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
