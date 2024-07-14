@@ -96,7 +96,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
@@ -114,8 +114,12 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
+                to: '/docs/category/tutorial---getting-started',
               },
+              {
+                label: 'Documentations',
+                to: '/docs/category/documentations'
+              }
             ],
           },
           {
@@ -131,7 +135,7 @@ const config = {
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://x.com/benzaitchik',
               },
             ],
           },
@@ -149,7 +153,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} The Amazon Hydrometeorology Tool. `, // Built with Docusaurus. 
+        copyright: `Copyright © ${new Date().getFullYear()} The Amazon Hydrometeorology Tool. Made with &#128151 on &#127758 ! `, // Built with Docusaurus. 
       },
       mermaid:{
         theme: {light: "forest", dark: "dark"},
@@ -157,6 +161,20 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      algolia: {
+        // the application id provided by algolia
+        appId: "YFTWNPIRND",
+        // public api key
+        apiKey: "41bdcc3f79c84f2217e38c6e1ced98b6",
+        indexName: "blackteacatsuio",
+        // contextual search enabled
+        contextualSearch: true,
+        // optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: "search",
+        // replaceSearchResultPathname: {from: "/", to:"/docs/"},
+        // whether the insights feature is enabled or not on Docsearch (`false` by default)
+        insights: false,
       },
     }),
 };

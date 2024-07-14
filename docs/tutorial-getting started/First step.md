@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Introduction to NetCDF Files & Python 
+# Introduction to NetCDF files & Python 
 
 ## What are netCDF files?
 
