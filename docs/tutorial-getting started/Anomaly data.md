@@ -1,6 +1,6 @@
-# Anomaly workflow
+# Workflow for calculating monthly anomaly data 
 
-## Calculating anomaly data:
+## The math:
 
 The method for calculating anomaly used in the method described below,
 
@@ -104,7 +104,18 @@ anomaly_ds.to_netcdf(output_file_path)
 
 
 ## Iterating through a list of variable
-:::tip
-Add a `for loop` at the beginning of the snippet provided here.
-:::
 
+Add a `for loop` at the beginning of the snippet provided here.
+
+
+```mermaid
+flowchart LR
+    subgraph id1[for var. in list_of_variables]
+        A[(netcdf Datatset)] --> F([Query data on variable names]) -->
+        B{{data of var.}} --> C([Monthly anomaly calculation]) --> D(Ouput.nc) --> E((( )))
+    end
+```
+
+:::tip
+Make changes to arguments passed to your kernel accordingly when making these changes
+:::

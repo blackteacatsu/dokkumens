@@ -16,11 +16,18 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
+        <div className={styles.buttons} style={{marginBottom:18}}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            to="/docs/tutorial-getting started/First step">
+            Read full documentation 📃
+          </Link>
+        </div>
+        <div className={styles.buttons}> 
+          <Link
+            className="button button--secondary button--lg"
+            to="https://experience.arcgis.com/experience/716928d07a9d4ab595b477b1a402a4b1/page/Historical-data-exploror">
+            See our app in action 🕹️
           </Link>
         </div>
       </div>
@@ -36,6 +43,7 @@ export default function Home() {
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
+        <iframe src='http://127.0.0.1:5501/marqueen%20design/imgmarquee.html'width="100%"></iframe>
         <HomepageFeatures />
       </main>
     </Layout>
