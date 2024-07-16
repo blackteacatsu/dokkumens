@@ -27,7 +27,7 @@ const config = {
 
   title: 'Dokkumentation Page for Hydrometeorology Tools',
   tagline: 'Created in Baltimore, Maryland',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/university_shield_blue.ico',
 
   // Set the production url of your site here
   url: 'https://github.com',
