@@ -9,21 +9,22 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 ### Installation
 
 ```
-$ yarn
+$ npx create-docusaurus@latest my-website classic
 ```
 
 ### Local Development
 
 ```
-$ yarn start
+$ npm run start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-### Build
+### Local Build & Serving
 
 ```
-$ yarn build
+$ npm run build
+$ npm run serve
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
@@ -53,4 +54,34 @@ flowchart LR
     A([Build Docusaurus]) 
     B([Deploy to https://blackteacatsu.github.io/dokkuments/])
     A --> B
+```
+
+### Math Equations
+This site uses LaTex syntax to show math components. For inline math
+```
+$y = mx +b$
+```
+
+And for outstanding block of math expression use the following,
+```
+$$
+y = mx + b
+$$
+```
+
+### Diagrams & Flowcharts
+This sites' code block support native mermaid snippet rendering.
+
+
+### Embedding Videos
+This site uses `react-player` to showcase video, at beginning of `.md` add the following command:
+
+```
+import ReactPlayer from "react-player"
+import MyVideoUrl from './video/myVideo.mp4';
+```
+
+Then, insert `<ReactPlayer>` tag at the appropriate location,
+```
+<ReactPlayer playing controls url='video.mp4' />
 ```
