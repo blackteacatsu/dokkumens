@@ -1,7 +1,10 @@
 # Documentation Page for The Amazon HydroViewer
+<<<<<<< HEAD
+=======
 
 https://user-images.githubusercontent.com/6877923/115474571-03c75800-a23e-11eb-8096-8973aad5fa9f.mp4
 
+>>>>>>> parent of 4ee2c16 (changes made to README)
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
