@@ -15,5 +15,5 @@ You hear us right, it is a website generator... Most of our pages are prepared i
 In the near future, this website will be used as the hub of presenting the geoprocessing and statistical methods we used when building our webapp. 
 
 ### Stay tuned!
-<ReactPlayer playing controls url={MyVideoUrl} />
+<ReactPlayer playing controls url={MyVideoUrl} loop={true} />
 
