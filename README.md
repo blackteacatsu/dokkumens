@@ -1,8 +1,8 @@
-<video width="320" height="240" controls>
-  <source src="https://github.com/blackteacatsu/spring_2024_envs_research_amazon_ldas/blob/main/media_files/Map_3D.mp4" type="video/mp4">
-</video>
+# Documentation Page for The Amazon HydroViewer
 
-# Website
+<video width="320" height="240" controls>
+  <source src="/blog/2024-07-14-welcome/Map_3D.mp4" type="video/mp4">
+</video>
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
@@ -70,14 +70,7 @@ $$
 ```
 
 ### Diagrams & Flowcharts
-This sites' code block support native mermaid snippet rendering.
-```
-```mermaid
-flowchart LR
-...
-```
-```
-
+This sites' code block support native [Mermaid](https://mermaid.js.org/) snippet rendering. To create new Mermaid figures, add new Mermaid code block in your Markdown file.
 
 ### Embedding Videos
 This site uses `react-player` to showcase video, at beginning of `.md` add the following command:
