@@ -1,8 +1,6 @@
 # Documentation Page for The Amazon HydroViewer
 
-<video width="320" height="240" controls>
-  <source src="/blog/2024-07-14-welcome/Map_3D.mp4" type="video/mp4">
-</video>
+<video controls src="/blog/2024-07-14-welcome/Map_3D.mp4" title=""></video>
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
