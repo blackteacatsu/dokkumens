@@ -1,6 +1,6 @@
 # Documentation Page for The Amazon HydroViewer
 
-<video controls src="/blog/2024-07-14-welcome/Map_3D.mp4" title=""></video>
+https://blackteacatsu.github.io/dokkuments/assets/medias/Map_3D-e7c6fdfa28cc851ad6fa616cf9709249.mp4
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
