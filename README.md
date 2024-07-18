@@ -71,6 +71,12 @@ $$
 
 ### Diagrams & Flowcharts
 This sites' code block support native mermaid snippet rendering.
+```
+```mermaid
+flowchart LR
+...
+```
+```
 
 
 ### Embedding Videos
