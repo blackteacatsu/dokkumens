@@ -63,15 +63,15 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          //editUrl:
+            //'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          //editUrl:
+            //'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -110,7 +110,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Links to Pages',
             items: [
               {
                 label: 'Tutorial',
@@ -123,19 +123,19 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'External Sites',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'SERVIR Amaonia',
+                href: 'https://servir.alliancebioversityciat.org/',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'USAID',
+                href: 'https://www.usaid.gov/',
               },
               {
-                label: 'Twitter',
-                href: 'https://x.com/benzaitchik',
+                label: 'CIAT',
+                href: 'https://alliancebioversityciat.org/',
               },
             ],
           },
@@ -147,7 +147,7 @@ const config = {
                 to: '/blog',
               },
               {
-                label: 'GitHub',
+                label: 'Built using Docusauras',
                 href: 'https://github.com/facebook/docusaurus',
               },
             ],
