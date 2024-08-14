@@ -1,7 +1,6 @@
 ---
 title: Precipitation 
 ---
-# Precipitation  
 ## Description
-
-evapotranspiration 
+This measures the amount of precipitation (rainfall) falling over a specific area per unit time. 
+**Unit: $mm/\text{day}$**
