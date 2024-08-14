@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Introduction to NetCDF files & Python 
+# Introduction to netCDF files & Python 
 
 ## What are netCDF files?
 
@@ -86,14 +86,15 @@ Attributes: (12/15)
 ```
 
 ## Reading NetCDF files using netCDF
-Another popular python library used to process netCDDF files are netcdf
+Another popular python library to process netCDDF files are netcdf.
 
 ### Installation 
-Run the following command in your terminal
+If you don't have this library installed, run the following command in your terminal
 ```terminal title="powershell"
 pip install netCDF4
 ```
 ### Reading netCDF files using netCDF4
+Similar to `Xarray`, we will pass the file location through `<nc.Dataset()>`,
 
 ```python
 import netCDF4 as nc
@@ -101,8 +102,6 @@ import netCDF4 as nc
 data_path ="~\...\example.nc"
 
 data = nc.Dataset(data_path)
-
-data
 ```
 
 ```terminal title="Python 3"
@@ -128,4 +127,5 @@ root group (NETCDF4 data model, file format HDF5):
     groups: 
 
 ```
-
+## Takeaway
+Notice the differences in our terminal outputs, the `Xarray` library reads the netCDF file as a array object, since the that library was built on top of NumPy which provides more advance capability in terms of data manipulation since it could be seamlessly intergrated with other Python library like `Pandas` and `Matplotlib`. On the other hand, `netCDF4` is built base on the C library, and only low-level access to netCDF files. 
